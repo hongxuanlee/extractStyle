@@ -1,0 +1,51 @@
+{
+  "name": "extract-rx-style",
+  "version": "0.0.1",
+  "description": "extract style from exist page to rx format style",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "dependencies": {
+    "bluebird": "^3.4.3",
+    "phantomjs": "^2.1.7"
+  },
+  "devDependencies": {
+    "chai": "~3.4.1",
+    "eslint": "^1.10.3",
+    "mocha": "~2.3.4",
+    "mocha-phantomjs": "^4.1.0"
+  },
+  "eslintConfig": {
+    "globals": {
+      "describe": true,
+      "it": true,
+      "phantom": true,
+      "expect": true,
+      "eventAgent": true
+    },
+    "parser": "babel-eslint",
+    "rules": {
+      "linebreak-style": [
+        2,
+        "unix"
+      ],
+      "semi": [
+        2,
+        "always"
+      ],
+      "no-console": 0,
+      "eqeqeq": [
+        2,
+        "allow-null"
+      ]
+    },
+    "env": {
+      "browser": true,
+      "node": true
+    },
+    "extends": "eslint:recommended"
+  },
+  "author": "宣予",
+  "license": "ISC"
+}
