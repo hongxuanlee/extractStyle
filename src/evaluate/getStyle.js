@@ -1,4 +1,4 @@
-module.exports = function(defaultStyles, root) {
+module.exports = function(defaultStyles, root, loopElement) {
      var filterDefaultStyle = function(defaultStyles, sources) {
         for (var key in sources) {
             if (sources[key] === defaultStyles[key]) {
@@ -7,6 +7,15 @@ module.exports = function(defaultStyles, root) {
         }
         return sources;
     };
+
+    var isLoopElem = function(elemClassName){
+        for(var i = 0; i < loopElement.length; i++){
+           if(elemClassName.indexOf(loopElement[i]) > -1){
+                return true;
+            }
+        };
+        return false;
+    }
 
     var getStyles = function(elem, config) {
         var elemStyle = {};
@@ -21,15 +30,34 @@ module.exports = function(defaultStyles, root) {
     var getTree = function(elem, config) {
         var nodeInfo = {};
         if (elem.nodeType === 1 && elem.tagName !== "SCRIPT" && elem.tagName !== "STYLE") {
-            nodeInfo.tag = elem.tagName.toLowerCase();
+            var className = elem.className.trim();
             var styles = getStyles(elem, config);
+            var tag = elem.tagName.toLowerCase();
+            nodeInfo.className = className;
             nodeInfo.styles = styles;
+            nodeInfo.tag = tag;
             var children = Array.prototype.slice.call(elem.childNodes);
             var childArr = [];
-            if (children.length > 0) {
+            if(className){
+                nodeInfo.isLoop = isLoopElem(className);
+            }
+            if(children.length === 1 && children[0].nodeType === 3 && tag !== 'a'){
+                var subElem = children[0];
+                var text = subElem.nodeValue.trim();
+                if (text.length > 0) {
+                    nodeInfo.tag = 'textNode';
+                    nodeInfo.text = text;
+                }
+            }else if (children.length > 0) {
                 for (var i = 0; i < children.length; i++) {
                     var child = getTree(children[i], config);
-                    if (child) childArr.push(child);
+                    // if is loop element , skip this loop...
+                    if (child) {
+                        childArr.push(child);
+                        if (child.isLoop) {
+                            i = children.length;
+                        }
+                    }
                 }
                 nodeInfo.children = childArr;
             }
@@ -45,14 +73,11 @@ module.exports = function(defaultStyles, root) {
     };
 
     var getElementandStyles = function(name) {
-        console.log(name);
         var rootElem = document.querySelector(name);
         if (!rootElem) {
             throw error('not valid element!');
         }
-        console.log('.....', rootElem);
         var styleKeys = Object.keys(defaultStyles);
-        console.log(styleKeys);
         return getTree(rootElem, styleKeys);
     }
 
