@@ -17,6 +17,40 @@ module.exports = function(defaultStyles, root, loopElement) {
         return false;
     }
 
+    var borderStyle = function(originalStyle, styles){
+        var border = originalStyle.getPropertyValue('border-width');
+        var borderColors = ['border-top-color', 'border-bottom-color', 'border-left-color', 'border-right-color'];
+        var borderStyles = ['border-top-style', 'border-bottom-style', 'border-left-style', 'border-right-style'];
+        var bcolor = originalStyle.getPropertyValue('border-color');
+        var bstyle = originalStyle.getPropertyValue('border-style');
+        if(border === '0px'){
+            return;
+        }
+        console.log(border, bcolor, bstyle);
+        if(/^rgb\([0-9,\s]*?\)$/.test(bcolor)){
+            styles['border-color'] = bcolor
+        }else{
+            borderColors.forEach(function(item){
+               styles[item] = originalStyle.getPropertyValue(item);
+            })
+        }
+        if(bstyle === 'none'){
+            return;
+        }
+        if(! /\s/.test(bstyle)){
+            styles['border-style'] = bstyle
+        }else{
+            borderStyles.forEach(function(item){
+                var value = originalStyle.getPropertyValue(item);
+                if(value){
+                   styles[item] = originalStyle.getPropertyValue(item);
+                }
+            })
+        }
+        console.log(styles['border-style'], styles['border-color']);
+
+    }
+
     var getStyles = function(elem, config) {
         var elemStyle = {};
         var filters = config;
@@ -24,7 +58,9 @@ module.exports = function(defaultStyles, root, loopElement) {
         filters.forEach(function(key) {
             elemStyle[key] = styles.getPropertyValue(key);
         });
-        return filterDefaultStyle(defaultStyles, elemStyle);
+        var filetedStyle = filterDefaultStyle(defaultStyles, elemStyle);
+        borderStyle(styles, filetedStyle);
+        return filetedStyle
     };
 
     var getTree = function(elem, config) {

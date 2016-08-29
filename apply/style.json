@@ -21,7 +21,7 @@
     "textAlign": "left",
     "width": "186rem"
   },
-  "a21": {
+  "a73": {
     "color": "#0000ee",
     "display": "inline",
     "fontSize": "0rem",
@@ -34,7 +34,7 @@
     "fontSize": "0rem",
     "height": "186rem",
     "lineHeight": "0rem",
-    "opacity": "0.9638414978981018",
+    "opacity": "0.6373562216758728",
     "textAlign": "left",
     "width": "186rem"
   },
@@ -62,7 +62,7 @@
     "textAlign": "left",
     "width": "186rem"
   },
-  "textNode59": {
+  "textNode8": {
     "color": "#333333",
     "display": "inline",
     "fontSize": "14rem",
@@ -96,7 +96,7 @@
     "textAlign": "left",
     "verticalAlign": "bottom"
   },
-  "span1": {
+  "span23": {
     "color": "#fc3342",
     "display": "inline",
     "fontSize": "19rem",
@@ -104,7 +104,7 @@
     "textAlign": "left",
     "verticalAlign": "bottom"
   },
-  "textNode84": {
+  "textNode83": {
     "color": "#fc3342",
     "display": "inline",
     "fontSize": "19rem",
@@ -122,7 +122,7 @@
     "textAlign": "left",
     "width": "176rem"
   },
-  "textNode12": {
+  "textNode61": {
     "color": "#b8b8b8",
     "display": "inline",
     "fontSize": "13rem",
@@ -132,6 +132,12 @@
   },
   "itemHongbao02": {
     "backgroundColor": "#fef0f0",
+    "borderBottomWidth": "1rem",
+    "borderColor": "#fc3342",
+    "borderLeftWidth": "1rem",
+    "borderRightWidth": "1rem",
+    "borderStyle": "solid",
+    "borderTopWidth": "1rem",
     "color": "#fc3342",
     "display": "inline-block",
     "fontSize": "13rem",

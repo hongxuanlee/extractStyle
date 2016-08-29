@@ -20,7 +20,7 @@
     "padding-left": "0px",
     "padding-right": "0px",
     "padding-top": "0px",
-    "padding-top": "0px",
+    "padding-bottom": "0px",
     "position": "static",
     "text-align": "start",
     "vertical-align": "baseline",
@@ -30,5 +30,9 @@
     "right": "auto",
     "top": "auto",
     "bottom": "auto",
-    "text-decoration": "none"
+    "text-decoration": "none",
+    "border-top-width": "0px",
+    "border-bottom-width": "0px",
+    "border-left-width": "0px",
+    "border-right-width": "0px"
 }
