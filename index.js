@@ -6,16 +6,17 @@ const spawn = child_process.spawn;
 const phantomjs = require('phantomjs');
 const binPath = phantomjs.path;
 
-const PHANTOMJS_DIR = path.join(__dirname, 'phantomjs');
+const PHANTOMJS_DIR = path.join(__dirname, 'src');
 const PHANTOMJS_FILE = path.join(PHANTOMJS_DIR, 'main.js');
-
+console.log('p', PHANTOMJS_DIR);
 class Extractor {
-    constructor(url, dirname, cb, option) {
+    constructor(url, option, cb) {
         this.url = url;
-        this.dirname = dirname;
-        this.cb = cb;
         this.option = option || {};
-        this.cookie = this.option.cookie || '';
+        this.selector = this.option.selector;
+        this.loopElem = this.option.loopElem || '';
+        this.dirName = this.option.dirName;
+        this.cb = cb;
         this.init();
     }
     init() {
@@ -23,7 +24,7 @@ class Extractor {
     }
     process() {
         let self = this;
-        let proc = spawn(binPath, [PHANTOMJS_FILE, self.url, self.dirname, self.cookie], {
+        let proc = spawn(binPath, [PHANTOMJS_FILE, self.url, self.selector, self.loopElem, self.dirName], {
             stdio: "inherit"
         });
         proc.on('exit', () => {

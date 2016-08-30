@@ -15,7 +15,7 @@ var fs = require('fs');
 var getStyle = require('./evaluate/getStyle.js');
 var convert = require('./convert.js');
 
-var TIMEOUT = 100;
+var TIMEOUT = 3000;
 
 /**
  * to inject args to evaluate script
@@ -37,9 +37,8 @@ var convertInfo = function(content){
     var templeteTokens = [];
     var styles = {};
     var res = convert(content, templeteTokens, styles);
-    fs.write('apply/temp.jsx', templeteTokens.join('\n'));
-    fs.write('apply/style.json', JSON.stringify(styles, null ,2));
-    console.log('task done!');
+    fs.write(dirName +'/temp.jsx', templeteTokens.join('\n'));
+    fs.write(dirName +'/style.json', JSON.stringify(styles, null ,2));
     phantom.exit(0)
 }
 
@@ -52,6 +51,10 @@ var getInfo = function(page, elemName, loopElem){
 
 var openPage = function(url, elemName, loopElem){
     var page = WebPage.create();
+    page.viewportSize = {
+       width: 750,
+       height: 799
+    };
     page.onConsoleMessage = function(msg){
         console.log('[page]:', msg);
     };
@@ -69,7 +72,7 @@ var openPage = function(url, elemName, loopElem){
         if (status !== 'success') {
             console.log('FAIL to load this url');
         } else {
-            console.log('finished');
+            console.log('load url finished');
             window.setTimeout(function(){
                 getInfo(page, elemName, loopElem);
             }, TIMEOUT);
@@ -77,12 +80,9 @@ var openPage = function(url, elemName, loopElem){
     });
 };
 
-console.log('start');
-// if (system.args.length === 1) {
-//     phantom.exit(1);
-// }
-var url = system.args[1] || 'http://127.0.0.1:3333/mod/cm-item-prom/index.html';
-var elemName = system.args[2] || '.item-02';
-var loopElem = system.args[3] || 'item-02';
+var url = system.args[1];
+var elemName = system.args[2] || '.listview-items';
+var loopElem = system.args[3] || 'listview-item';
+var dirName = system.args[4] || "shop"
 // test now
 openPage(url, elemName, loopElem);

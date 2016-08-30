@@ -26,7 +26,6 @@ module.exports = function(defaultStyles, root, loopElement) {
         if(border === '0px'){
             return;
         }
-        console.log(border, bcolor, bstyle);
         if(/^rgb\([0-9,\s]*?\)$/.test(bcolor)){
             styles['border-color'] = bcolor
         }else{
@@ -47,8 +46,6 @@ module.exports = function(defaultStyles, root, loopElement) {
                 }
             })
         }
-        console.log(styles['border-style'], styles['border-color']);
-
     }
 
     var getStyles = function(elem, config) {
@@ -111,7 +108,7 @@ module.exports = function(defaultStyles, root, loopElement) {
     var getElementandStyles = function(name) {
         var rootElem = document.querySelector(name);
         if (!rootElem) {
-            throw error('not valid element!');
+            throw new Error('not valid element!');
         }
         var styleKeys = Object.keys(defaultStyles);
         return getTree(rootElem, styleKeys);
