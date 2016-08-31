@@ -1,28 +1,28 @@
-<View style={style.listviewItems}>
-<View style={style.listviewItem}>
+<ul style={style.listviewItems}>
+<li style={style.listviewItem}>
 <Link style={style.J_hyperlink} href={}>
 <View style={style.shopShowWrap}>
-<Image style={style.J_LazyLoad source={}/>
+<Image style={style.J_LazyLoad source={uri:http://gw.alicdn.com/bao/uploaded/TB1Zh6ZMpXXXXXFXFXXSutbFXXX.jpg_180x230Q50s100.jpg}/>
 </View>
 <View style={style.shopContent}>
 <View style={style.shopLogoWrap}>
-<Image style={style.J_LazyLoad source={}/>
+<Image style={style.J_LazyLoad source={uri:data:image/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAQMAAAAl21bKAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjYAAAAAIAAeIhvDMAAAAASUVORK5CYII=}/>
 </View>
 <Text style={style.shopDeclaration}>
-</Text>
+新品前10名半价</Text>
 <Text style={style.shopFeatures}>
-</Text>
+新品前10名半价</Text>
 <View style={style.shopBtn}>
-<View style={style.span1}>
+<View style={style.span11}>
 <Text>
-</Text>
+进店抢红包</Text>
 <Text style={style.iconfont}>
-</Text>
+</Text>
 </View>
-<View style={style.em65}>
+<View style={style.em61}>
 </View>
 </View>
 </View>
 </Link>
-</View>
-</View>
+</li>
+</ul>

@@ -1,5 +1,4 @@
 const Extractor = require('../index.js');
-console.log(Extractor);
 const path = require('path');
 
 let extractor = new Extractor('http://market.wapa.taobao.com/wh/tms/taobao/page/markets/2016xsx/market/page/test?wh_ttid=phone', {

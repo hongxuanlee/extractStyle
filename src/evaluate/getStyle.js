@@ -16,7 +16,7 @@ module.exports = function(defaultStyles, root, loopElement) {
         };
         return false;
     }
-
+    // change border style 
     var borderStyle = function(originalStyle, styles){
         var border = originalStyle.getPropertyValue('border-width');
         var borderColors = ['border-top-color', 'border-bottom-color', 'border-left-color', 'border-right-color'];
@@ -66,6 +66,9 @@ module.exports = function(defaultStyles, root, loopElement) {
             var className = elem.className.trim();
             var styles = getStyles(elem, config);
             var tag = elem.tagName.toLowerCase();
+            if(elem.src){
+                nodeInfo.src = elem.src;
+            }
             nodeInfo.className = className;
             nodeInfo.styles = styles;
             nodeInfo.tag = tag;
@@ -106,7 +109,12 @@ module.exports = function(defaultStyles, root, loopElement) {
     };
 
     var getElementandStyles = function(name) {
-        var rootElem = document.querySelector(name);
+        var rootElem;
+        if(!name){
+          rootElem = document.body;
+        }else{
+          rootElem = document.querySelector(name);
+        }
         if (!rootElem) {
             throw new Error('not valid element!');
         }

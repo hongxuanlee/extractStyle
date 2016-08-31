@@ -112,7 +112,7 @@
     "verticalAlign": "middle",
     "width": "350rem"
   },
-  "span1": {
+  "span11": {
     "color": "#ffffff",
     "display": "inline",
     "fontSize": "26rem",
@@ -128,7 +128,7 @@
     "lineHeight": "60rem",
     "textAlign": "center"
   },
-  "em65": {
+  "em61": {
     "color": "#ffffff",
     "display": "inline",
     "fontSize": "26rem",

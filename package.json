@@ -1,5 +1,5 @@
 {
-  "name": "extract-rx-style",
+  "name": "@ali/extract-rx-style",
   "version": "0.0.1",
   "description": "extract style from exist page to rx format style",
   "main": "index.js",
@@ -16,36 +16,9 @@
     "mocha": "~2.3.4",
     "mocha-phantomjs": "^4.1.0"
   },
-  "eslintConfig": {
-    "globals": {
-      "describe": true,
-      "it": true,
-      "phantom": true,
-      "expect": true,
-      "eventAgent": true
-    },
-    "parser": "babel-eslint",
-    "rules": {
-      "linebreak-style": [
-        2,
-        "unix"
-      ],
-      "semi": [
-        2,
-        "always"
-      ],
-      "no-console": 0,
-      "eqeqeq": [
-        2,
-        "allow-null"
-      ]
-    },
-    "env": {
-      "browser": true,
-      "node": true
-    },
-    "extends": "eslint:recommended"
-  },
   "author": "宣予",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "registry": "http://registry.npm.alibaba-inc.com"
+  }
 }

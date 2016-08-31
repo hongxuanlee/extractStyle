@@ -8,7 +8,7 @@ const binPath = phantomjs.path;
 
 const PHANTOMJS_DIR = path.join(__dirname, 'src');
 const PHANTOMJS_FILE = path.join(PHANTOMJS_DIR, 'main.js');
-console.log('p', PHANTOMJS_DIR);
+
 class Extractor {
     constructor(url, option, cb) {
         this.url = url;
