@@ -37,8 +37,10 @@ var convertInfo = function(content) {
     var templeteTokens = [];
     var styles = {};
     var res = convert(content, templeteTokens, styles);
+    var resStr = JSON.stringify(styles, null, 2);
+    resStr = resStr.replace(/\"/g, "\'");
     fs.write(dirName + '/temp.jsx', templeteTokens.join('\n'));
-    fs.write(dirName + '/style.json', JSON.stringify(styles, null, 2));
+    fs.write(dirName + '/style.js', 'var style = ' + resStr + ';\nexport default style;');
     phantom.exit(0)
 }
 
