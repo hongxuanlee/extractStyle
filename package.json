@@ -1,5 +1,5 @@
 {
-  "name": "@ali/extract-rx-style",
+  "name": "extract-rx-style",
   "version": "0.0.1",
   "description": "extract style from exist page to rx format style",
   "main": "index.js",
@@ -17,8 +17,5 @@
     "mocha-phantomjs": "^4.1.0"
   },
   "author": "宣予",
-  "license": "ISC",
-  "publishConfig": {
-    "registry": "http://registry.npm.alibaba-inc.com"
-  }
+  "license": "ISC"
 }

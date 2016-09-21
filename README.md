@@ -1,7 +1,7 @@
 ###  extract style from exist page
 
 - extract exist page style
-- convert to rx(native) standard
+- convert to react standard
 
 #### example 
 - just like apply dir
